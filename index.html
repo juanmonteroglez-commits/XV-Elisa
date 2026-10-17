@@ -76,8 +76,8 @@ h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);l
 
 /* ---------- portada (abrir invitación) ---------- */
 #cover{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem;
-  background:radial-gradient(circle at 50% 30%,var(--lilac),var(--lupine) 70%);transition:opacity .9s,visibility .9s}
-#cover.hide{opacity:0;visibility:hidden}
+  background:radial-gradient(circle at 50% 30%,var(--lilac),var(--lupine) 70%);transition:opacity .9s ease,transform 1.1s cubic-bezier(.18,.8,.25,1),visibility .9s ease;transform-origin:center center}
+#cover.hide{opacity:0;visibility:hidden;transform:scale(1.12)}
 #cover .mini{font-family:var(--script);font-size:2.4rem;color:var(--ink)}
 #cover .big{font-family:var(--script);font-size:clamp(4.5rem,18vw,7rem);color:#fff;text-shadow:0 2px 18px rgba(74,42,68,.45);line-height:1}
 #cover .cover-title{font-family:var(--script);font-size:clamp(3.5rem,12vw,6rem);line-height:1;color:rgba(74,42,68,.9);margin-bottom:.2rem;letter-spacing:.02em}
@@ -116,8 +116,9 @@ h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);l
 #music.off{opacity:.65}
 
 /* ---------- 1. HERO ---------- */
-#hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:#fff;overflow:hidden;
-  background:linear-gradient(180deg,var(--hydrangea) 0%,var(--lavender) 38%,var(--lupine) 72%,var(--lilac) 100%)}
+#hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:#fff;overflow:hidden;opacity:0;transform:scale(.72);transform-origin:center center;
+  background:linear-gradient(180deg,var(--hydrangea) 0%,var(--lavender) 38%,var(--lupine) 72%,var(--lilac) 100%);transition:opacity .8s ease,transform 1.15s cubic-bezier(.18,.8,.25,1)}
+body.invitation-open #hero{opacity:1;transform:scale(1)}
 #hero::before{content:"";position:absolute;inset:0;background:rgba(74,42,68,.28)}
 #hero>*{position:relative;z-index:2}
 .moon{position:absolute!important;top:7%;right:9%;width:84px;height:84px;border-radius:50%;z-index:1!important;
@@ -660,6 +661,7 @@ const envelope = document.getElementById('envelope');
 function openInvitation(){
   if (envelope.classList.contains('open')) return;
   envelope.classList.add('open');
+  document.body.classList.add('invitation-open');
   // la música debe iniciar dentro del gesto del usuario
   audio.play().then(() => musicBtn.classList.remove('off')).catch(() => {});
   setTimeout(() => {
