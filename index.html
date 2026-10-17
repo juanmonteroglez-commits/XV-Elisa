@@ -83,6 +83,29 @@ h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);l
 #cover .flor{width:46px;height:46px;color:#fff;animation:spin 18s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ---------- sobre de apertura (dentro de la portada) ---------- */
+#cover{background:#d7ccc0;padding:0;overflow:hidden}
+.scene{perspective:1400px;display:flex;justify-content:center;align-items:center}
+.envelope-container{position:relative;width:440px;height:320px;cursor:pointer;transform-style:preserve-3d}
+.envelope-back{position:absolute;inset:0;background-color:#c9bcae;border-radius:4px;box-shadow:0 10px 20px rgba(0,0,0,.15)}
+.flap{position:absolute;z-index:5;transition:transform 1s cubic-bezier(.4,0,.2,1),opacity .8s ease .2s;backface-visibility:hidden}
+.flap-top{top:0;left:0;transform-origin:top center}
+.flap-bottom{bottom:0;left:0;transform-origin:bottom center}
+.flap-left{top:0;left:0;transform-origin:left center}
+.flap-right{top:0;right:0;transform-origin:right center}
+.seal-wrapper{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);z-index:10;width:120px;height:120px;border-radius:50%;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));animation:floatAndPulse 2.5s infinite ease-in-out;transition:all .5s cubic-bezier(.4,0,.2,1)}
+.seal-wrapper img{width:100%;height:100%;object-fit:cover;border-radius:100%;mix-blend-mode:multiply;pointer-events:none}
+@keyframes floatAndPulse{0%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.03)}100%{transform:translate(-50%,-50%) scale(1)}}
+.envelope-container.open .flap-top{transform:rotateX(150deg);opacity:0}
+.envelope-container.open .flap-bottom{transform:rotateX(-150deg);opacity:0}
+.envelope-container.open .flap-left{transform:rotateY(-150deg);opacity:0}
+.envelope-container.open .flap-right{transform:rotateY(150deg);opacity:0}
+.envelope-container.open .seal-wrapper{opacity:0;transform:translate(-50%,-50%) scale(0);pointer-events:none}
+@media(max-width:480px){.scene{transform:scale(.82)}}
+@media(max-width:400px){.scene{transform:scale(.68)}}
+@media(max-width:350px){.scene{transform:scale(.6)}}
+
 #music{position:fixed;right:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;
   background:var(--dahlia);color:#fff;font-size:1.3rem;box-shadow:0 6px 18px rgba(74,42,68,.3);display:none}
 #music.show{display:block}
@@ -229,15 +252,160 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
   </symbol>
 </svg>
 
+<!-- Definiciones del sobre -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="emboss" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur" />
+        <feSpecularLighting in="blur" surfaceScale="4" specularConstant="1.2" specularExponent="25" result="spec"
+          lighting-color="#ffffff">
+          <fePointLight x="80" y="-60" z="120" />
+        </feSpecularLighting>
+        <feComposite in="spec" in2="SourceAlpha" operator="in" result="specClip" />
+        <feBlend in="SourceGraphic" in2="specClip" mode="screen" />
+      </filter>
+
+      <symbol id="floral-pattern" viewBox="0 0 160 220">
+        <g transform="translate(80,30)">
+          <circle cx="0" cy="0" r="5" fill="none" stroke="#c9bcae" stroke-width="1.2" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(0)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(45)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(90)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(135)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(180)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(225)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(270)" />
+          <ellipse cx="0" cy="-13" rx="5" ry="9" fill="none" stroke="#c9bcae" stroke-width="1.2" transform="rotate(315)" />
+        </g>
+        <path d="M60,60 Q55,90 50,120 Q45,150 48,180" fill="none" stroke="#c9bcae" stroke-width="1.2" />
+        <path d="M55,85 Q40,75 35,60 Q50,68 55,85Z" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+        <path d="M52,115 Q35,108 30,92 Q47,100 52,115Z" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+        <path d="M50,145 Q33,140 30,125 Q46,132 50,145Z" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+        <g transform="translate(38,58)">
+          <circle cx="0" cy="0" r="4" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(0)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(60)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(120)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(180)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(240)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(300)" />
+        </g>
+        <path d="M100,55 Q105,85 110,115 Q115,145 112,175" fill="none" stroke="#c9bcae" stroke-width="1.2" />
+        <path d="M105,80 Q122,70 126,55 Q111,63 105,80Z" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+        <path d="M108,110 Q125,103 128,88 Q113,96 108,110Z" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+        <path d="M111,140 Q128,134 130,118 Q115,126 111,140Z" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+        <g transform="translate(122,53)">
+          <circle cx="0" cy="0" r="4" fill="none" stroke="#c9bcae" stroke-width="1.1" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(0)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(60)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(120)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(180)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(240)" />
+          <ellipse cx="0" cy="-10" rx="4" ry="7" fill="none" stroke="#c9bcae" stroke-width="1.1" transform="rotate(300)" />
+        </g>
+        <g transform="translate(60,185)">
+          <circle cx="0" cy="0" r="3" fill="none" stroke="#c9bcae" stroke-width="1" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(0)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(72)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(144)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(216)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(288)" />
+        </g>
+        <g transform="translate(100,190)">
+          <circle cx="0" cy="0" r="3" fill="none" stroke="#c9bcae" stroke-width="1" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(0)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(72)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(144)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(216)" />
+          <ellipse cx="0" cy="-8" rx="3" ry="5" fill="none" stroke="#c9bcae" stroke-width="1" transform="rotate(288)" />
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
 <audio id="audio" loop preload="none" src="cancion.mp3"></audio>
 <button id="music" class="off" aria-label="Activar o pausar la música">♫</button>
 
 <!-- ===== PORTADA ===== -->
 <div id="cover">
-  <svg class="flor"><use href="#flor"/></svg>
-  <div class="mini">Mis XV años</div>
-  <div class="big">Elisa</div>
-  <button class="btn" id="openBtn">Abrir invitación</button>
+<div class="scene">
+    <div class="envelope-container" id="envelope" role="button" tabindex="0" aria-label="Abrir invitación">
+
+      <div class="envelope-back"></div>
+
+      <!-- SOLAPA IZQUIERDA -->
+      <div class="flap flap-left">
+        <svg width="220" height="320" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="clip-left">
+              <polygon points="0,0 220,160 0,320" />
+            </clipPath>
+          </defs>
+          <polygon points="0,0 220,160 0,320" fill="#e8decf" clip-path="url(#clip-left)" />
+          <g clip-path="url(#clip-left)" filter="url(#emboss)">
+            <use href="#floral-pattern" x="15" y="70" width="160" height="220" />
+          </g>
+          <polygon points="0,0 220,160 0,320" fill="none" stroke="#d4c8b8" stroke-width="0.5" />
+        </svg>
+      </div>
+
+      <!-- SOLAPA DERECHA -->
+      <div class="flap flap-right">
+        <svg width="220" height="320" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="clip-right">
+              <polygon points="220,0 0,160 220,320" />
+            </clipPath>
+          </defs>
+          <polygon points="220,0 0,160 220,320" fill="#ded3c2" clip-path="url(#clip-right)" />
+          <g clip-path="url(#clip-right)" filter="url(#emboss)">
+            <use href="#floral-pattern" x="45" y="70" width="160" height="220" />
+          </g>
+          <polygon points="220,0 0,160 220,320" fill="none" stroke="#cac0b0" stroke-width="0.5" />
+        </svg>
+      </div>
+
+      <!-- SOLAPA SUPERIOR -->
+      <div class="flap flap-top">
+        <svg width="440" height="160" viewBox="0 0 440 160" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="clip-top">
+              <polygon points="0,0 440,0 220,160" />
+            </clipPath>
+          </defs>
+          <polygon points="0,0 440,0 220,160" fill="#eee7dc" clip-path="url(#clip-top)" />
+          <g clip-path="url(#clip-top)" filter="url(#emboss)">
+            <use href="#floral-pattern" x="50" y="25" width="160" height="220" />
+            <use href="#floral-pattern" x="230" y="25" width="160" height="220" />
+          </g>
+          <polygon points="0,0 440,0 220,160" fill="none" stroke="#d8cfc1" stroke-width="0.5" />
+        </svg>
+      </div>
+
+      <!-- SOLAPA INFERIOR -->
+      <div class="flap flap-bottom">
+        <svg width="440" height="160" viewBox="0 0 440 160" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="clip-bottom">
+              <polygon points="0,160 440,160 220,0" />
+            </clipPath>
+          </defs>
+          <polygon points="0,160 440,160 220,0" fill="#e3d8c8" clip-path="url(#clip-bottom)" />
+          <g clip-path="url(#clip-bottom)" filter="url(#emboss)">
+            <use href="#floral-pattern" x="50" y="75" width="160" height="220" />
+            <use href="#floral-pattern" x="230" y="75" width="160" height="220" />
+          </g>
+          <polygon points="0,160 440,160 220,0" fill="none" stroke="#d0c5b5" stroke-width="0.5" />
+        </svg>
+      </div>
+
+      <!-- SELLO DE CERA -->
+      <div class="seal-wrapper">
+        <img src="sello.png" alt="Sello de cera">
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- ===== 1. HERO ===== -->
@@ -482,12 +650,22 @@ const CONFIG = {
 const cover = document.getElementById('cover');
 const audio = document.getElementById('audio');
 const musicBtn = document.getElementById('music');
-document.getElementById('openBtn').addEventListener('click', () => {
-  cover.classList.add('hide');
-  document.body.classList.remove('locked');
-  musicBtn.classList.add('show');
+const envelope = document.getElementById('envelope');
+function openInvitation(){
+  if (envelope.classList.contains('open')) return;
+  envelope.classList.add('open');
+  // la música debe iniciar dentro del gesto del usuario
   audio.play().then(() => musicBtn.classList.remove('off')).catch(() => {});
-  window.scrollTo(0, 0);
+  setTimeout(() => {
+    cover.classList.add('hide');
+    document.body.classList.remove('locked');
+    musicBtn.classList.add('show');
+    window.scrollTo(0, 0);
+  }, 1000);
+}
+envelope.addEventListener('click', openInvitation);
+envelope.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openInvitation(); }
 });
 musicBtn.addEventListener('click', () => {
   if (audio.paused) { audio.play().then(() => musicBtn.classList.remove('off')).catch(() => {}); }

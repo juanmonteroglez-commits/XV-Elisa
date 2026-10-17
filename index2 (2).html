@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elisa | Mis XV Años</title>
+<meta name="description" content="Acompáñame a celebrar mis XV años en un jardín encantado. Domingo 29 de noviembre de 2026.">
+<link rel="canonical" href="https://juanmonteroglez-commits.github.io/XV-Elisa/">
+<meta property="og:title" content="Elisa | Mis XV Años">
+<meta property="og:description" content="Acompáñame a celebrar mis XV años en un jardín encantado. Domingo 29 de noviembre de 2026.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://juanmonteroglez-commits.github.io/XV-Elisa/">
+<meta property="og:site_name" content="Mis XV años de Elisa">
+<meta property="og:image" content="https://juanmonteroglez-commits.github.io/XV-Elisa/miniatura.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Invitación a los XV años de Elisa">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elisa | Mis XV Años">
+<meta name="twitter:description" content="Acompáñame a celebrar mis XV años en un jardín encantado. Domingo 29 de noviembre de 2026.">
+<meta name="twitter:image" content="https://juanmonteroglez-commits.github.io/XV-Elisa/miniatura.png">
+<script>document.documentElement.classList.add('js')</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Italiana&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Paleta de la imagen */
+  --lupine:#C19EC1;      /* Gemini Venus */
+  --petal:#F2E2E0;       /* Libra Rising */
+  --lilac:#E0C7D7;       /* Libra Moon (color principal) */
+  --lavender:#B2ADCB;    /* Pisces Sun */
+  --hydrangea:#849BCC;   /* Pisces Moon */
+  --dahlia:#AE5F82;      /* Leo Moon */
+  --ink:#4A2A44;         /* texto: versión oscura del malva */
+
+  --script:'Great Vibes', cursive;
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --title:'Italiana', serif;
+  --caps:'Cinzel', serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--serif);font-size:1.25rem;line-height:1.6;color:var(--ink);background:var(--petal);overflow-x:hidden}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--dahlia);outline-offset:3px}
+
+/* ---------- utilidades ---------- */
+section{position:relative;padding:6.5rem 1.5rem;text-align:center}
+.wrap{max-width:900px;margin:0 auto}
+.bg-petal{background:var(--petal)}
+.bg-lilac{background:var(--lilac)}
+.bg-lav{background:linear-gradient(180deg,var(--lilac),var(--lavender))}
+.kicker{font-family:var(--script);font-size:2.2rem;color:var(--dahlia);line-height:1}
+h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);line-height:1.1;margin:.4rem 0 1.2rem}
+.lead{max-width:560px;margin:0 auto;font-size:1.3rem}
+.flor{width:28px;height:28px;color:var(--dahlia);display:inline-block}
+.divider{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:1.2rem auto 2rem;color:var(--dahlia)}
+.divider::before,.divider::after{content:"";height:1px;width:70px;background:currentColor;opacity:.55}
+.btn{display:inline-block;font-family:var(--caps);font-size:.95rem;letter-spacing:.08em;text-decoration:none;border:0;cursor:pointer;
+  background:var(--dahlia);color:#fff;padding:.9rem 2rem;border-radius:999px;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px);background:#9a4e70}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--dahlia)}
+.btn.ghost:hover{background:var(--dahlia);color:#fff}
+
+/* ---------- scroll reveal ---------- */
+.js .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,0s)}
+.js .reveal.left{transform:translateX(-40px)}
+.js .reveal.right{transform:translateX(40px)}
+.js .reveal.zoom{transform:scale(.92)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ---------- portada (abrir invitación) ---------- */
+#cover{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem;
+  background:radial-gradient(circle at 50% 30%,var(--lilac),var(--lupine) 70%);transition:opacity .9s,visibility .9s}
+#cover.hide{opacity:0;visibility:hidden}
+#cover .mini{font-family:var(--script);font-size:2.4rem;color:var(--ink)}
+#cover .big{font-family:var(--script);font-size:clamp(4.5rem,18vw,7rem);color:#fff;text-shadow:0 2px 18px rgba(74,42,68,.45);line-height:1}
+#cover .flor{width:46px;height:46px;color:#fff;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+#music{position:fixed;right:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--dahlia);color:#fff;font-size:1.3rem;box-shadow:0 6px 18px rgba(74,42,68,.3);display:none}
+#music.show{display:block}
+#music.off{opacity:.65}
+
+/* ---------- 1. HERO ---------- */
+#hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:#fff;overflow:hidden;
+  background:linear-gradient(180deg,var(--hydrangea) 0%,var(--lavender) 38%,var(--lupine) 72%,var(--lilac) 100%)}
+#hero::before{content:"";position:absolute;inset:0;background:rgba(74,42,68,.28)}
+#hero>*{position:relative;z-index:2}
+.moon{position:absolute!important;top:7%;right:9%;width:84px;height:84px;border-radius:50%;z-index:1!important;
+  box-shadow:inset -22px 0 0 0 var(--petal);filter:drop-shadow(0 0 18px rgba(242,226,224,.8))}
+.hero-top{font-family:var(--serif);font-style:italic;font-size:1.6rem;text-shadow:0 1px 10px rgba(74,42,68,.5)}
+#hero .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:multiply;z-index:1;pointer-events:none}
+@media (min-aspect-ratio:4/3){#hero .hero-art{object-fit:contain}}
+.hero-name{font-family:var(--script);font-size:clamp(5.2rem,22vw,9rem);line-height:.95;text-shadow:0 3px 22px rgba(74,42,68,.55)}
+.hero-last{font-family:var(--caps);letter-spacing:.28em;font-size:1rem;margin-top:.3rem;text-shadow:0 1px 8px rgba(74,42,68,.6)}
+.arch{position:relative;width:min(250px,64vw);aspect-ratio:1;margin:1.4rem 0 1rem;border-radius:50%;overflow:hidden;
+  border:6px solid var(--petal);box-shadow:0 12px 40px rgba(74,42,68,.4);background:linear-gradient(160deg,var(--lilac),var(--lupine))}
+.arch img,.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--script);font-size:1.8rem;color:#fff;text-align:center;padding:1rem}
+.hero-date{font-family:var(--caps);font-size:1.05rem;letter-spacing:.14em;text-shadow:0 1px 8px rgba(74,42,68,.6)}
+.scroll-hint{margin-top:1.4rem;font-size:.95rem;font-style:italic;opacity:.95;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(7px)}}
+.star{position:absolute!important;border-radius:50%;background:#fff;z-index:1!important;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+.petalfall{position:absolute!important;top:-30px;width:14px;height:18px;z-index:1!important;border-radius:80% 0 80% 0;background:var(--petal);opacity:.85;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(60px,110vh) rotate(540deg)}}
+
+/* ---------- 2. BIENVENIDA ---------- */
+.quote{font-size:1.5rem;font-style:italic;max-width:600px;margin:0 auto 2.4rem}
+.pair{display:grid;gap:2rem;grid-template-columns:1fr;margin-top:1.2rem}
+@media(min-width:680px){.pair{grid-template-columns:1fr 1fr}}
+.pair h3{font-family:var(--script);font-size:2.2rem;font-weight:400;color:var(--dahlia);margin-bottom:.4rem}
+.pair p{font-size:1.3rem}
+.amp{font-family:var(--script);font-size:1.7rem;color:var(--hydrangea);line-height:1.2}
+
+/* ---------- 3. CUENTA REGRESIVA ---------- */
+.count{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.3rem,2vw,1.1rem);max-width:760px;margin:2rem auto 0}
+.cbox{aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.35);border:2px solid var(--dahlia);box-shadow:0 0 0 7px rgba(255,255,255,.3)}
+.cbox b{font-family:var(--caps);font-weight:600;font-size:clamp(1.15rem,5.5vw,2.9rem);line-height:1;color:var(--dahlia)}
+.cbox span{font-size:clamp(.65rem,2.6vw,1.1rem);font-style:italic}
+#countMsg{font-family:var(--script);font-size:2.6rem;color:var(--dahlia);margin-top:1.5rem;display:none}
+.calendar-btn{margin-top:1.6rem}
+
+/* ---------- 4. UBICACIÓN ---------- */
+.places{display:grid;gap:2.2rem;margin-top:1rem}
+@media(min-width:820px){.places{grid-template-columns:1fr 1fr}}
+.place{background:rgba(255,255,255,.55);border-radius:26px;padding:1.6rem 1.3rem 1.8rem;box-shadow:0 10px 30px rgba(74,42,68,.12)}
+.place h3{font-family:var(--title);font-weight:400;font-size:2rem}
+.place .hora{font-family:var(--caps);color:var(--dahlia);font-size:1.1rem;letter-spacing:.08em;margin:.2rem 0 .6rem}
+.place address{font-style:normal;font-size:1.15rem;margin-bottom:1.1rem}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:18px;margin-bottom:1.2rem;background:var(--lilac)}
+
+/* ---------- 5. ITINERARIO ---------- */
+.timeline{position:relative;max-width:640px;margin:2.4rem auto 0;text-align:left}
+.timeline::before{content:"";position:absolute;left:28px;top:0;bottom:0;width:2px;background:var(--lupine)}
+.event{position:relative;display:flex;gap:1.4rem;align-items:flex-start;margin-bottom:2.2rem}
+.dot{flex:0 0 58px;height:58px;border-radius:50%;background:var(--dahlia);color:#fff;display:flex;align-items:center;justify-content:center;
+  border:5px solid var(--petal);position:relative;z-index:1}
+.dot svg{width:26px;height:26px}
+.event h3{font-family:var(--title);font-weight:400;font-size:1.8rem;line-height:1.1}
+.event .t{font-family:var(--caps);color:var(--dahlia);letter-spacing:.08em;font-size:1rem}
+.event p{font-size:1.15rem}
+
+/* ---------- 6. DRESS CODE ---------- */
+.dress{font-family:var(--script);font-size:clamp(3rem,11vw,4.6rem);color:var(--dahlia);line-height:1.1;margin:.5rem 0}
+.avoid{display:flex;justify-content:center;gap:1.6rem;flex-wrap:wrap;margin:1.6rem 0 2.4rem}
+.sw{width:78px}
+.sw i{display:block;width:78px;height:78px;border-radius:50%;border:2px solid var(--ink);position:relative;margin-bottom:.4rem}
+.sw i::after{content:"";position:absolute;left:50%;top:-6px;bottom:-6px;width:3px;background:var(--dahlia);transform:rotate(45deg)}
+.sw span{font-size:1.05rem;line-height:1.1;display:block}
+.palette{display:flex;justify-content:center;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem}
+.palette i{width:46px;height:46px;border-radius:50%;box-shadow:0 4px 10px rgba(74,42,68,.2);border:3px solid #fff}
+
+/* ---------- 7. MEMORIES ---------- */
+.carousel{position:relative;width:min(380px,100%);margin:2.2rem auto 0}
+.frame{overflow:hidden}
+.track{display:flex;gap:14px;transition:transform .7s cubic-bezier(.65,0,.35,1)}
+.slide{position:relative;flex:0 0 78%;aspect-ratio:1;overflow:hidden;border:7px solid var(--petal);border-radius:8px;
+  box-shadow:0 14px 40px rgba(74,42,68,.28);background:linear-gradient(160deg,var(--lupine),var(--hydrangea))}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(242,226,224,.92);color:var(--dahlia);font-size:1.6rem;line-height:1;box-shadow:0 4px 12px rgba(74,42,68,.25);z-index:3}
+.nav.prev{left:-18px}.nav.next{right:-18px}
+.dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.3rem}
+.dots button{width:11px;height:11px;border-radius:50%;border:0;background:var(--lupine);cursor:pointer;padding:0;transition:transform .3s,background .3s}
+.dots button.on{background:var(--dahlia);transform:scale(1.4)}
+
+/* ---------- 8. LLUVIA DE SOBRES ---------- */
+.envelope{width:120px;height:84px;margin:0 auto 1.6rem;position:relative;background:var(--petal);border-radius:6px;box-shadow:0 8px 20px rgba(74,42,68,.2)}
+.envelope::before{content:"";position:absolute;inset:0;border-radius:6px;background:linear-gradient(to bottom right,transparent 49%,var(--lilac) 50%) left/50% 100% no-repeat,linear-gradient(to bottom left,transparent 49%,var(--lilac) 50%) right/50% 100% no-repeat}
+.envelope::after{content:"";position:absolute;left:0;right:0;top:0;height:52px;background:var(--lupine);clip-path:polygon(0 0,100% 0,50% 100%);border-radius:6px 6px 0 0;transform-origin:top;animation:flap 4s ease-in-out infinite}
+@keyframes flap{0%,60%,100%{transform:rotateX(0)}30%{transform:rotateX(180deg)}}
+.heart{position:absolute;left:50%;top:48%;width:20px;height:20px;transform:translate(-50%,-50%);color:var(--dahlia);z-index:2}
+.rain{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.rain i{position:absolute;top:-20px;width:20px;height:14px;background:var(--petal);border:1px solid var(--lupine);border-radius:2px;opacity:.7;animation:fall linear infinite}
+
+/* ---------- 9. FOTOS ---------- */
+.wa-ico{width:22px;height:22px;vertical-align:-5px;margin-right:.45rem}
+.hint{font-size:1.05rem;font-style:italic;margin-top:1.1rem}
+
+/* ---------- 10. RSVP ---------- */
+form{max-width:520px;margin:2rem auto 0;text-align:left;background:rgba(255,255,255,.55);padding:2rem 1.5rem;border-radius:26px;box-shadow:0 10px 30px rgba(74,42,68,.14)}
+label,legend{display:block;font-family:var(--caps);font-size:.9rem;letter-spacing:.06em;margin-bottom:.4rem;color:var(--ink)}
+.field{margin-bottom:1.3rem}
+input[type=text],select,textarea{width:100%;font:inherit;font-size:1.15rem;color:var(--ink);background:#fff;border:1.5px solid var(--lupine);border-radius:14px;padding:.7rem 1rem}
+textarea{resize:vertical;min-height:90px}
+fieldset{border:0}
+.choices{display:grid;gap:.7rem}
+@media(min-width:480px){.choices{grid-template-columns:1fr 1fr}}
+.choices input{position:absolute;opacity:0}
+.choices label{display:block;text-align:center;font-family:var(--serif);font-size:1.15rem;letter-spacing:0;margin:0;padding:.75rem;border:1.5px solid var(--lupine);border-radius:14px;cursor:pointer;background:#fff;transition:.25s}
+.choices input:checked+label{background:var(--dahlia);color:#fff;border-color:var(--dahlia)}
+.choices input:focus-visible+label{outline:3px solid var(--hydrangea);outline-offset:2px}
+#err{color:#9b2c4f;font-size:1.05rem;min-height:1.6rem;margin-bottom:.4rem}
+form .btn{width:100%}
+
+footer{background:var(--ink);color:var(--petal);text-align:center;padding:3rem 1.5rem 4rem}
+footer .script{font-family:var(--script);font-size:2.6rem}
+footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .star,.petalfall,.rain i,.scroll-hint,#cover .flor,.envelope::after{animation:none}
+  .track{transition:none}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- Símbolo de flor reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flor" viewBox="-20 -20 40 40">
+    <g fill="currentColor">
+      <ellipse cx="0" cy="-9" rx="5" ry="9"/>
+      <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(288)"/>
+    </g>
+    <circle r="3.6" fill="#F2E2E0"/>
+  </symbol>
+</svg>
+
+<audio id="audio" loop preload="none" src="cancion.mp3"></audio>
+<button id="music" class="off" aria-label="Activar o pausar la música">♫</button>
+
+<!-- ===== PORTADA ===== -->
+<div id="cover">
+  <svg class="flor"><use href="#flor"/></svg>
+  <div class="mini">Mis XV años</div>
+  <div class="big">Elisa</div>
+  <button class="btn" id="openBtn">Abrir invitación</button>
+</div>
+
+<!-- ===== 1. HERO ===== -->
+<section id="hero">
+  <div class="moon"></div>
+  <div id="sky"></div>
+  <img class="hero-art" src="fondo2.png" alt="" aria-hidden="true">
+  <p class="hero-top">Mis XV años</p>
+  <h1 class="hero-name">Elisa</h1>
+  <p class="hero-last">Pérez Subías</p>
+  <div class="arch">
+    <span class="ph">Foto principal</span>
+    <img src="fotos/principal.jpg" alt="Elisa, la quinceañera" onerror="this.remove()">
+  </div>
+  <p class="hero-date">Domingo 29 de noviembre de 2026</p>
+  <p class="scroll-hint">Desliza hacia abajo ↓</p>
+</section>
+
+<!-- ===== 2. BIENVENIDA ===== -->
+<section class="bg-petal" id="bienvenida">
+  <div class="wrap">
+    <p class="kicker reveal">Había una vez...</p>
+    <h2 class="reveal" style="--d:.1s"></h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <p class="quote reveal">“En un jardín encantado, entre flores y hadas, comienza el capítulo más bonito de mi historia. Quiero que estés ahí para vivirlo conmigo.”</p>
+
+    <!-- EDITA: nombres de padres y padrinos -->
+    <div class="pair">
+      <div class="reveal left">
+        <h3>Mis padres</h3>
+        <p>Nombre de mamá</p>
+        <div class="amp">&amp;</div>
+        <p>Nombre de papá</p>
+      </div>
+      <div class="reveal right">
+        <h3>Mis padrinos</h3>
+        <p>Nombre de madrina</p>
+        <div class="amp">&amp;</div>
+        <p>Nombre de padrino</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. CUENTA REGRESIVA ===== -->
+<section class="bg-lilac" id="cuenta">
+  <div class="wrap">
+    <p class="kicker reveal">Falta poco</p>
+    <h2 class="reveal" style="--d:.1s">Cuenta regresiva</h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <div class="count" id="count">
+      <div class="cbox reveal zoom" style="--d:.0s"><b id="cd">00</b><span>días</span></div>
+      <div class="cbox reveal zoom" style="--d:.12s"><b id="ch">00</b><span>horas</span></div>
+      <div class="cbox reveal zoom" style="--d:.24s"><b id="cm">00</b><span>minutos</span></div>
+      <div class="cbox reveal zoom" style="--d:.36s"><b id="cs">00</b><span>segundos</span></div>
+    </div>
+    <button class="btn ghost calendar-btn" type="button" id="calendarBtn">Agregar al calendario</button>
+    <p id="countMsg">¡Hoy es el gran día!</p>
+  </div>
+</section>
+
+<!-- ===== 4. UBICACIÓN ===== -->
+<section class="bg-petal" id="ubicacion">
+  <div class="wrap">
+    <p class="kicker reveal">Dónde celebraremos</p>
+    <h2 class="reveal" style="--d:.1s">Ubicación</h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <div class="places">
+      <article class="place reveal left">
+        <h3>Misa</h3>
+        <p class="hora">12:00 pm</p>
+        <address>Parroquia de Beatos Mártires Mexicanos de Cristo Rey<br>J. Alfredo Villa Bonfil #29, Col. Modelo, 76170<br>Santiago de Querétaro, Qro.</address>
+        <iframe class="map" loading="lazy" title="Mapa de la parroquia" referrerpolicy="no-referrer-when-downgrade"
+          data-address="Parroquia de Beatos Mártires Mexicanos de Cristo Rey, J. Alfredo Villa Bonfil 29, Modelo, 76170 Santiago de Querétaro, Qro."></iframe>
+        <a class="btn ghost" target="_blank" rel="noopener" data-maplink="Parroquia de Beatos Mártires Mexicanos de Cristo Rey, J. Alfredo Villa Bonfil 29, Modelo, 76170 Santiago de Querétaro, Qro.">Abrir en Google Maps</a>
+      </article>
+
+      <article class="place reveal right">
+        <h3>Recepción</h3>
+        <p class="hora">3:00 pm</p>
+        <address>Av. del Faisán #70, 76930<br>Residencial Santa Fe, Qro.</address>
+        <iframe class="map" loading="lazy" title="Mapa de la recepción" referrerpolicy="no-referrer-when-downgrade"
+          data-address="Av. del Faisán 70, 76930 Residencial Santa Fe, Querétaro, Qro."></iframe>
+        <a class="btn ghost" target="_blank" rel="noopener" data-maplink="Av. del Faisán 70, 76930 Residencial Santa Fe, Querétaro, Qro.">Abrir en Google Maps</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. ITINERARIO ===== -->
+<section class="bg-lav" id="itinerario">
+  <div class="wrap">
+    <p class="kicker reveal">Nuestro día</p>
+    <h2 class="reveal" style="--d:.1s">Itinerario</h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+
+    <div class="timeline">
+      <div class="event reveal left">
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M5 22V12l7-4 7 4v10zM10 22v-5a2 2 0 0 1 4 0v5"/></svg></div>
+        <div><h3>Misa</h3><p class="t">12:00 pm</p><p>Parroquia de Beatos Mártires Mexicanos de Cristo Rey.</p></div>
+      </div>
+      <div class="event reveal left">
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0zM12 13v8M8 21h8"/></svg></div>
+        <div><h3>Recepción</h3><p class="t">3:00 pm</p><p>Bienvenida.</p></div>
+      </div>
+      <!-- EDITA: horarios de ejemplo, ajústalos o bórralos -->
+      <div class="event reveal left">
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a2 2 0 0 0 2 2v8M10 3v8M6 7h4M18 3c-2 2-3 5-3 8h3v10"/></svg></div>
+        <div><h3>Comida</h3><p class="t">4:30 pm</p><p>Disfruta de la comida y la convivencia.</p></div>
+      </div>
+      <div class="event reveal left">
+        <div class="dot"><svg class="flor" style="color:#fff;width:28px;height:28px"><use href="#flor"/></svg></div>
+        <div><h3>Vals</h3><p class="t">5:30 pm</p><p>Un momento especial</p></div>
+      </div>
+      <div class="event reveal left">
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div><h3>Baile</h3><p class="t">9:00 pm</p><p>¡A bailar entre luces!</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. DRESS CODE ===== -->
+<section class="bg-petal" id="dresscode">
+  <div class="wrap">
+    <p class="kicker reveal">Dress code</p>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <p class="dress reveal zoom">Cocktail semi&nbsp;formal</p>
+    <p class="lead reveal">Para mantener la magia del jardín, te pido evitar estos colores:</p>
+
+    <div class="avoid reveal">
+      <div class="sw"><i style="background:#FFFFFF"></i><span>Blanco</span></div>
+      <div class="sw"><i style="background:#E6D5BC"></i><span>Beige</span></div>
+      <div class="sw"><i style="background:#EDE8E2"></i><span>Aperlado</span></div>
+    </div>
+
+    <p class="lead reveal">Tonos que combinan con nuestro jardín encantado:</p>
+    <div class="palette reveal">
+      <i style="background:var(--lupine)"></i><i style="background:var(--lilac)"></i><i style="background:var(--lavender)"></i>
+      <i style="background:var(--hydrangea)"></i><i style="background:var(--dahlia)"></i>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. MEMORIES ===== -->
+<section class="bg-lilac" id="memories">
+  <div class="wrap">
+    <p class="kicker reveal">Memories</p>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+
+    <div class="carousel reveal zoom" id="carousel">
+      <div class="frame">
+        <div class="track" id="track">
+          <!-- EDITA: sube tus fotos a la carpeta /fotos como 1.jpg, 2.jpg, etc. -->
+          <div class="slide"><span class="ph">Foto 1</span><img src="fotos/1.jpg" alt="Recuerdo 1" onerror="this.remove()"></div>
+          <div class="slide"><span class="ph">Foto 2</span><img src="fotos/2.jpg" alt="Recuerdo 2" onerror="this.remove()"></div>
+          <div class="slide"><span class="ph">Foto 3</span><img src="fotos/3.jpg" alt="Recuerdo 3" onerror="this.remove()"></div>
+          <div class="slide"><span class="ph">Foto 4</span><img src="fotos/4.jpg" alt="Recuerdo 4" onerror="this.remove()"></div>
+          <div class="slide"><span class="ph">Foto 5</span><img src="fotos/5.jpg" alt="Recuerdo 5" onerror="this.remove()"></div>
+          <div class="slide"><span class="ph">Foto 6</span><img src="fotos/6.jpg" alt="Recuerdo 6" onerror="this.remove()"></div>
+        </div>
+      </div>
+      <button class="nav prev" id="prev" aria-label="Foto anterior">‹</button>
+      <button class="nav next" id="next" aria-label="Foto siguiente">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. LLUVIA DE SOBRES ===== -->
+<section class="bg-petal" id="sobres" style="overflow:hidden">
+  <div class="rain" id="rain"></div>
+  <div class="wrap" style="position:relative">
+    <p class="kicker reveal">Un detalle</p>
+    <h2 class="reveal" style="--d:.1s">Lluvia de sobres</h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <div class="envelope reveal zoom"><svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.4-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.600-8 11-8 11z"/></svg></div>
+    <p class="lead reveal">Tu presencia es mi mejor regalo. Si deseas tener un detalle conmigo, habrá un buzón para recibir tu sobre durante la recepción.</p>
+  </div>
+</section>
+
+<!-- ===== 9. COMPARTE TUS FOTOS ===== -->
+<section class="bg-lav" id="fotos">
+  <div class="wrap">
+    <p class="kicker reveal">Recuerdos compartidos</p>
+    <h2 class="reveal" style="--d:.1s">Comparte tus fotos y videos</h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <p class="lead reveal" style="margin-bottom:2rem">Ayúdame a guardar los momentos más bonitos de este día. Envíame tus fotos y videos del evento.</p>
+    <a class="btn reveal" id="waFotos" target="_blank" rel="noopener">
+      <svg class="wa-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.300-4.400A9 9 0 1 1 21 12z"/><path d="M9 9c0 3 3 6 6 6l1.200-1.500-2-1-1 .8c-.8-.4-1.600-1.200-2-2l.8-1-1-2z"/></svg>Enviar fotos y videos</a>
+  </div>
+</section>
+
+<!-- ===== 10. CONFIRMAR ASISTENCIA ===== -->
+<section class="bg-petal" id="rsvp">
+  <div class="wrap">
+    <p class="kicker reveal">Confirmación</p>
+    <h2 class="reveal" style="--d:.1s">Te esperamos</h2>
+    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
+    <p class="lead reveal">Tu presencia es lo más importante. Confirma tu asistencia antes del <strong>15 de noviembre de 2026</strong>.</p>
+
+    <form id="rsvpForm" class="reveal" novalidate>
+      <div class="field">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" autocomplete="name" placeholder="Escribe tu nombre">
+      </div>
+      <fieldset class="field">
+        <legend>¿Asistirás?</legend>
+        <div class="choices">
+          <div><input type="radio" name="asist" id="si" value="si"><label for="si">Sí, ahí estaré</label></div>
+          <div><input type="radio" name="asist" id="no" value="no"><label for="no">No podré asistir</label></div>
+        </div>
+      </fieldset>
+      <div class="field" id="personasField">
+        <label for="personas">Número de personas</label>
+        <select id="personas">
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        </select>
+      </div>
+      <p id="err" role="alert"></p>
+      <button type="submit" class="btn">Confirmar asistencia</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="script">Elisa Pérez Subías</div>
+  <p>29 · 11 · 2026</p>
+  <small>Invitación digital · <a href="https://www.instagram.com/invitacioneslabmx/" target="_blank" rel="noopener">@invitacioneslabmx</a></small>
+</footer>
+
+<script>
+/* ================== CONFIGURACIÓN (edita aquí) ================== */
+const CONFIG = {
+  // Número de WhatsApp con lada de país, sin + ni espacios. México: 52 + 10 dígitos
+  whatsapp: "5210000000000",
+  fecha: "2026-11-29T12:00:00-06:00",   // Hora de la misa (Querétaro, UTC-6)
+  festejada: "Elisa"
+};
+
+/* ---------- Portada + música ---------- */
+const cover = document.getElementById('cover');
+const audio = document.getElementById('audio');
+const musicBtn = document.getElementById('music');
+document.getElementById('openBtn').addEventListener('click', () => {
+  cover.classList.add('hide');
+  document.body.classList.remove('locked');
+  musicBtn.classList.add('show');
+  audio.play().then(() => musicBtn.classList.remove('off')).catch(() => {});
+  window.scrollTo(0, 0);
+});
+musicBtn.addEventListener('click', () => {
+  if (audio.paused) { audio.play().then(() => musicBtn.classList.remove('off')).catch(() => {}); }
+  else { audio.pause(); musicBtn.classList.add('off'); }
+});
+
+/* ---------- Estrellas y pétalos del hero ---------- */
+(function(){
+  const sky = document.getElementById('sky');
+  const hero = document.getElementById('hero');
+  for (let i = 0; i < 38; i++) {
+    const s = document.createElement('span');
+    s.className = 'star';
+    const size = Math.random() * 3 + 1.5;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*70}%;width:${size}px;height:${size}px;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+    hero.appendChild(s);
+  }
+  for (let i = 0; i < 12; i++) {
+    const p = document.createElement('span');
+    p.className = 'petalfall';
+    p.style.cssText = `left:${Math.random()*100}%;animation-duration:${9+Math.random()*9}s;animation-delay:${-Math.random()*12}s;transform:scale(${.6+Math.random()*.8})`;
+    hero.appendChild(p);
+  }
+  // sobres cayendo en la sección 8
+  const rain = document.getElementById('rain');
+  for (let i = 0; i < 14; i++) {
+    const e = document.createElement('i');
+    e.style.cssText = `left:${Math.random()*100}%;animation-duration:${8+Math.random()*8}s;animation-delay:${-Math.random()*10}s`;
+    rain.appendChild(e);
+  }
+})();
+
+/* ---------- Scroll reveal ---------- */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(e => io.observe(e));
+})();
+
+/* ---------- Cuenta regresiva ---------- */
+(function(){
+  const target = new Date(CONFIG.fecha).getTime();
+  const d = document.getElementById('cd'), h = document.getElementById('ch'),
+        m = document.getElementById('cm'), s = document.getElementById('cs');
+  const pad = n => String(n).padStart(2, '0');
+  function tick(){
+    let diff = target - Date.now();
+    if (diff <= 0) {
+      document.getElementById('count').style.display = 'none';
+      document.getElementById('countMsg').style.display = 'block';
+      return;
+    }
+    const days = Math.floor(diff / 864e5); diff -= days * 864e5;
+    const hrs = Math.floor(diff / 36e5);   diff -= hrs * 36e5;
+    const min = Math.floor(diff / 6e4);    diff -= min * 6e4;
+    d.textContent = pad(days); h.textContent = pad(hrs); m.textContent = pad(min); s.textContent = pad(Math.floor(diff / 1000));
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ---------- Mapas embebidos ---------- */
+document.querySelectorAll('iframe[data-address]').forEach(f => {
+  f.src = 'https://www.google.com/maps?q=' + encodeURIComponent(f.dataset.address) + '&output=embed';
+});
+document.querySelectorAll('a[data-maplink]').forEach(a => {
+  a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a.dataset.maplink);
+});
+
+/* ---------- Carrusel de memories ---------- */
+(function(){
+  const track = document.getElementById('track');
+  const slides = track.children, n = slides.length;
+  const dotsBox = document.getElementById('dots');
+  let i = 0, timer;
+  for (let k = 0; k < n; k++) {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', 'Ir a la foto ' + (k + 1));
+    b.addEventListener('click', () => { go(k); restart(); });
+    dotsBox.appendChild(b);
+  }
+  function go(k){
+    i = (k + n) % n;
+    track.style.transform = `translateX(-${slides[i].offsetLeft - slides[0].offsetLeft}px)`;
+    [...dotsBox.children].forEach((b, j) => b.classList.toggle('on', j === i));
+  }
+  function restart(){ clearInterval(timer); timer = setInterval(() => go(i + 1), 4500); }
+  document.getElementById('prev').addEventListener('click', () => { go(i - 1); restart(); });
+  document.getElementById('next').addEventListener('click', () => { go(i + 1); restart(); });
+  let x0 = null;
+  const car = document.getElementById('carousel');
+  car.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  car.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) { go(i + (dx < 0 ? 1 : -1)); restart(); }
+    x0 = null;
+  });
+  window.addEventListener('resize', () => go(i));
+  go(0); restart();
+})();
+
+/* ---------- Agregar fecha al calendario ---------- */
+document.getElementById('calendarBtn').addEventListener('click', () => {
+  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const calendar = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Invitaciones//XV Elisa//ES',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:xv-elisa-20261129@invitacion',
+    'DTSTAMP:' + stamp,
+    'DTSTART;VALUE=DATE:20261129',
+    'DTEND;VALUE=DATE:20261130',
+    'SUMMARY:XV años de Elisa',
+    'DESCRIPTION:Misa a las 12:00 pm. Santiago de Querétaro.',
+    'LOCATION:Santiago de Querétaro, Qro.',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'xv-elisa.ics';
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+/* ---------- WhatsApp: compartir fotos ---------- */
+document.getElementById('waFotos').href =
+  'https://wa.me/' + CONFIG.whatsapp + '?text=' +
+  encodeURIComponent('¡Hola! Te comparto mis fotos y videos de los XV años de ' + CONFIG.festejada + ' 💜');
+
+/* ---------- Confirmar asistencia (envía por WhatsApp) ---------- */
+(function(){
+  const form = document.getElementById('rsvpForm');
+  const err = document.getElementById('err');
+  const pField = document.getElementById('personasField');
+  form.querySelectorAll('input[name=asist]').forEach(r => r.addEventListener('change', () => {
+    pField.style.display = r.value === 'no' && r.checked ? 'none' : 'block';
+  }));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const asist = form.querySelector('input[name=asist]:checked');
+    if (!nombre) { err.textContent = 'Escribe tu nombre para continuar.'; return; }
+    if (!asist) { err.textContent = 'Elige si asistirás o no.'; return; }
+    err.textContent = '';
+    const personas = document.getElementById('personas').value;
+    let txt = asist.value === 'si'
+      ? `Hola, soy ${nombre}. Confirmo mi asistencia a los XV años de ${CONFIG.festejada}. Asistiremos ${personas} persona(s).`
+      : `Hola, soy ${nombre}. Lamentablemente no podré asistir a los XV años de ${CONFIG.festejada}.`;
+    window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
