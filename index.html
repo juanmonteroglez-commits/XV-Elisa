@@ -121,13 +121,13 @@ h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);l
 .amp{font-family:var(--script);font-size:1.7rem;color:var(--hydrangea);line-height:1.2}
 
 /* ---------- 3. CUENTA REGRESIVA ---------- */
-.count{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;max-width:520px;margin:2rem auto 0}
-@media(min-width:620px){.count{grid-template-columns:repeat(4,1fr);max-width:760px}}
+.count{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.3rem,2vw,1.1rem);max-width:760px;margin:2rem auto 0}
 .cbox{aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
   background:rgba(255,255,255,.35);border:2px solid var(--dahlia);box-shadow:0 0 0 7px rgba(255,255,255,.3)}
-.cbox b{font-family:var(--caps);font-weight:600;font-size:clamp(2rem,9vw,2.9rem);line-height:1;color:var(--dahlia)}
-.cbox span{font-size:1.1rem;font-style:italic}
+.cbox b{font-family:var(--caps);font-weight:600;font-size:clamp(1.15rem,5.5vw,2.9rem);line-height:1;color:var(--dahlia)}
+.cbox span{font-size:clamp(.65rem,2.6vw,1.1rem);font-style:italic}
 #countMsg{font-family:var(--script);font-size:2.6rem;color:var(--dahlia);margin-top:1.5rem;display:none}
+.calendar-btn{margin-top:1.6rem}
 
 /* ---------- 4. UBICACIÓN ---------- */
 .places{display:grid;gap:2.2rem;margin-top:1rem}
@@ -294,6 +294,7 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
       <div class="cbox reveal zoom" style="--d:.24s"><b id="cm">00</b><span>minutos</span></div>
       <div class="cbox reveal zoom" style="--d:.36s"><b id="cs">00</b><span>segundos</span></div>
     </div>
+    <button class="btn ghost calendar-btn" type="button" id="calendarBtn">Agregar al calendario</button>
     <p id="countMsg">¡Hoy es el gran día!</p>
   </div>
 </section>
@@ -456,10 +457,6 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
           <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
         </select>
       </div>
-      <div class="field">
-        <label for="mensaje">Mensaje para Elisa (opcional)</label>
-        <textarea id="mensaje" placeholder="Déjale unas palabras"></textarea>
-      </div>
       <p id="err" role="alert"></p>
       <button type="submit" class="btn">Confirmar asistencia</button>
     </form>
@@ -595,6 +592,33 @@ document.querySelectorAll('a[data-maplink]').forEach(a => {
   go(0); restart();
 })();
 
+/* ---------- Agregar fecha al calendario ---------- */
+document.getElementById('calendarBtn').addEventListener('click', () => {
+  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const calendar = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Invitaciones//XV Elisa//ES',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:xv-elisa-20261129@invitacion',
+    'DTSTAMP:' + stamp,
+    'DTSTART;VALUE=DATE:20261129',
+    'DTEND;VALUE=DATE:20261130',
+    'SUMMARY:XV años de Elisa',
+    'DESCRIPTION:Misa a las 12:00 pm. Santiago de Querétaro.',
+    'LOCATION:Santiago de Querétaro, Qro.',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'xv-elisa.ics';
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
 /* ---------- WhatsApp: compartir fotos ---------- */
 document.getElementById('waFotos').href =
   'https://wa.me/' + CONFIG.whatsapp + '?text=' +
@@ -616,11 +640,9 @@ document.getElementById('waFotos').href =
     if (!asist) { err.textContent = 'Elige si asistirás o no.'; return; }
     err.textContent = '';
     const personas = document.getElementById('personas').value;
-    const msg = document.getElementById('mensaje').value.trim();
     let txt = asist.value === 'si'
       ? `Hola, soy ${nombre}. Confirmo mi asistencia a los XV años de ${CONFIG.festejada}. Asistiremos ${personas} persona(s).`
       : `Hola, soy ${nombre}. Lamentablemente no podré asistir a los XV años de ${CONFIG.festejada}.`;
-    if (msg) txt += ` Mensaje: ${msg}`;
     window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
   });
 })();
