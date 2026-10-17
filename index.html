@@ -87,10 +87,12 @@ h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);l
 #cover{background:#d7ccc0;padding:0;overflow:hidden}
 .scene{perspective:1400px;display:flex;justify-content:center;align-items:center}
 .envelope-container{position:relative;width:440px;height:320px;cursor:pointer;transform-style:preserve-3d}
-.envelope-back{position:absolute;inset:0;background-color:#c9bcae;border-radius:4px;box-shadow:0 10px 20px rgba(0,0,0,.15)}
+.envelope-back{position:absolute;inset:0;background-color:#c9bcae;border-radius:4px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
 .flap{position:absolute;z-index:5;transition:transform 1s cubic-bezier(.4,0,.2,1),opacity .8s ease .2s;backface-visibility:hidden}
+.flap-bottom svg{filter:saturate(.9) brightness(1.03)}
 .flap-top{top:0;left:0;transform-origin:top center}
-.flap-bottom{bottom:0;left:0;transform-origin:bottom center}
+.flap-bottom{bottom:0;left:0;transform-origin:bottom center; margin-top:1px}
+.flap-bottom svg{display:block; transform:translateY(1px); filter:saturate(.95) contrast(1.02)}
 .flap-left{top:0;left:0;transform-origin:left center}
 .flap-right{top:0;right:0;transform-origin:right center}
 .seal-wrapper{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);z-index:10;width:120px;height:120px;border-radius:50%;
@@ -390,12 +392,12 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
               <polygon points="0,160 440,160 220,0" />
             </clipPath>
           </defs>
-          <polygon points="0,160 440,160 220,0" fill="#e3d8c8" clip-path="url(#clip-bottom)" />
+          <polygon points="0,160 440,160 220,0" fill="#f1eae1" clip-path="url(#clip-bottom)" />
           <g clip-path="url(#clip-bottom)" filter="url(#emboss)">
             <use href="#floral-pattern" x="50" y="75" width="160" height="220" />
             <use href="#floral-pattern" x="230" y="75" width="160" height="220" />
           </g>
-          <polygon points="0,160 440,160 220,0" fill="none" stroke="#d0c5b5" stroke-width="0.5" />
+          <polygon points="0,160 440,160 220,0" fill="none" stroke="#cdbca8" stroke-width="0.25" />
         </svg>
       </div>
 
