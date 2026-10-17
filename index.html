@@ -80,6 +80,8 @@ h2{font-family:var(--title);font-weight:400;font-size:clamp(2.4rem,7vw,3.6rem);l
 #cover.hide{opacity:0;visibility:hidden}
 #cover .mini{font-family:var(--script);font-size:2.4rem;color:var(--ink)}
 #cover .big{font-family:var(--script);font-size:clamp(4.5rem,18vw,7rem);color:#fff;text-shadow:0 2px 18px rgba(74,42,68,.45);line-height:1}
+#cover .cover-title{font-family:var(--script);font-size:clamp(3.5rem,12vw,6rem);line-height:1;color:rgba(74,42,68,.9);margin-bottom:.2rem;letter-spacing:.02em}
+#cover .cover-hint{font-family:var(--caps);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(74,42,68,.7);margin-top:.3rem}
 #cover .flor{width:46px;height:46px;color:#fff;animation:spin 18s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -330,6 +332,7 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
 
 <!-- ===== PORTADA ===== -->
 <div id="cover">
+  <div class="cover-title">Elisa</div>
 <div class="scene">
     <div class="envelope-container" id="envelope" role="button" tabindex="0" aria-label="Abrir invitación">
 
@@ -408,6 +411,7 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
 
     </div>
   </div>
+  <div class="cover-hint">Toque para abrir</div>
 </div>
 
 <!-- ===== 1. HERO ===== -->
