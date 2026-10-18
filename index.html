@@ -166,17 +166,6 @@ body.invitation-open #hero{opacity:1;transform:scale(1)}
 .place address{font-style:normal;font-size:1.15rem;margin-bottom:1.1rem}
 .map{width:100%;aspect-ratio:4/3;border:0;border-radius:18px;margin-bottom:1.2rem;background:var(--lilac)}
 
-/* ---------- 5. ITINERARIO ---------- */
-.timeline{position:relative;max-width:640px;margin:2.4rem auto 0;text-align:left}
-.timeline::before{content:"";position:absolute;left:28px;top:0;bottom:0;width:2px;background:var(--lupine)}
-.event{position:relative;display:flex;gap:1.4rem;align-items:flex-start;margin-bottom:2.2rem}
-.dot{flex:0 0 58px;height:58px;border-radius:50%;background:var(--dahlia);color:#fff;display:flex;align-items:center;justify-content:center;
-  border:5px solid var(--petal);position:relative;z-index:1}
-.dot svg{width:26px;height:26px}
-.event h3{font-family:var(--title);font-weight:400;font-size:1.8rem;line-height:1.1}
-.event .t{font-family:var(--caps);color:var(--dahlia);letter-spacing:.08em;font-size:1rem}
-.event p{font-size:1.15rem}
-
 /* ---------- 6. DRESS CODE ---------- */
 .dress{font-family:var(--script);font-size:clamp(3rem,11vw,4.6rem);color:var(--dahlia);line-height:1.1;margin:.5rem 0}
 .avoid{display:flex;justify-content:center;gap:1.6rem;flex-wrap:wrap;margin:1.6rem 0 2.4rem}
@@ -437,21 +426,16 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
     <p class="kicker reveal">Había una vez...</p>
     <h2 class="reveal" style="--d:.1s"></h2>
     <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
-    <p class="quote reveal">“En un jardín encantado, entre flores y hadas, comienza el capítulo más bonito de mi historia. Quiero que estés ahí para vivirlo conmigo.”</p>
+    <p class="quote reveal">“Son muchas las razones por las que tengo que agradecer, por un año más de vida y principalmente por tener a personas tan lindas a mi alrededor.”</p>
 
     <!-- EDITA: nombres de padres y padrinos -->
     <div class="pair">
-      <div class="reveal left">
-        <h3>Mis padres</h3>
-        <p>Nombre de mamá</p>
-        <div class="amp">&amp;</div>
-        <p>Nombre de papá</p>
-      </div>
+      
       <div class="reveal right">
         <h3>Mis padrinos</h3>
-        <p>Nombre de madrina</p>
+        <p>Sheila Subías García</p>
         <div class="amp">&amp;</div>
-        <p>Nombre de padrino</p>
+        <p>Armando García Gómez</p>
       </div>
     </div>
   </div>
@@ -498,39 +482,6 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
           data-address="Av. del Faisán 70, 76930 Residencial Santa Fe, Querétaro, Qro."></iframe>
         <a class="btn ghost" target="_blank" rel="noopener" data-maplink="Av. del Faisán 70, 76930 Residencial Santa Fe, Querétaro, Qro.">Abrir en Google Maps</a>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 5. ITINERARIO ===== -->
-<section class="bg-lav" id="itinerario">
-  <div class="wrap">
-    <p class="kicker reveal">Nuestro día</p>
-    <h2 class="reveal" style="--d:.1s">Itinerario</h2>
-    <div class="divider reveal"><svg class="flor"><use href="#flor"/></svg></div>
-
-    <div class="timeline">
-      <div class="event reveal left">
-        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M5 22V12l7-4 7 4v10zM10 22v-5a2 2 0 0 1 4 0v5"/></svg></div>
-        <div><h3>Misa</h3><p class="t">12:00 pm</p><p>Parroquia de Beatos Mártires Mexicanos de Cristo Rey.</p></div>
-      </div>
-      <div class="event reveal left">
-        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0zM12 13v8M8 21h8"/></svg></div>
-        <div><h3>Recepción</h3><p class="t">3:00 pm</p><p>Bienvenida.</p></div>
-      </div>
-      <!-- EDITA: horarios de ejemplo, ajústalos o bórralos -->
-      <div class="event reveal left">
-        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a2 2 0 0 0 2 2v8M10 3v8M6 7h4M18 3c-2 2-3 5-3 8h3v10"/></svg></div>
-        <div><h3>Comida</h3><p class="t">4:30 pm</p><p>Disfruta de la comida y la convivencia.</p></div>
-      </div>
-      <div class="event reveal left">
-        <div class="dot"><svg class="flor" style="color:#fff;width:28px;height:28px"><use href="#flor"/></svg></div>
-        <div><h3>Vals</h3><p class="t">5:30 pm</p><p>Un momento especial</p></div>
-      </div>
-      <div class="event reveal left">
-        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-        <div><h3>Baile</h3><p class="t">9:00 pm</p><p>¡A bailar entre luces!</p></div>
-      </div>
     </div>
   </div>
 </section>
