@@ -454,7 +454,7 @@ footer small{display:block;margin-top:1rem;font-size:1rem;opacity:.8}
       <div class="cbox reveal zoom" style="--d:.24s"><b id="cm">00</b><span>minutos</span></div>
       <div class="cbox reveal zoom" style="--d:.36s"><b id="cs">00</b><span>segundos</span></div>
     </div>
-    <button class="btn ghost calendar-btn" type="button" id="calendarBtn">Agregar al calendario</button>
+    <a class="btn ghost calendar-btn" id="calendarBtn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=XV%20a%C3%B1os%20de%20Elisa&amp;dates=20261129%2F20261130&amp;details=Misa%20a%20las%2012%3A00%20pm.%20Santiago%20de%20Quer%C3%A9taro.&amp;location=Santiago%20de%20Quer%C3%A9taro%2C%20Qro.&amp;sf=true&amp;output=xml" target="_blank" rel="noopener">Agregar al calendario</a>
     <p id="countMsg">¡Hoy es el gran día!</p>
   </div>
 </section>
@@ -734,33 +734,6 @@ document.querySelectorAll('a[data-maplink]').forEach(a => {
   window.addEventListener('resize', () => go(i));
   go(0); restart();
 })();
-
-/* ---------- Agregar fecha al calendario ---------- */
-document.getElementById('calendarBtn').addEventListener('click', () => {
-  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const calendar = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Invitaciones//XV Elisa//ES',
-    'CALSCALE:GREGORIAN',
-    'BEGIN:VEVENT',
-    'UID:xv-elisa-20261129@invitacion',
-    'DTSTAMP:' + stamp,
-    'DTSTART;VALUE=DATE:20261129',
-    'DTEND;VALUE=DATE:20261130',
-    'SUMMARY:XV años de Elisa',
-    'DESCRIPTION:Misa a las 12:00 pm. Santiago de Querétaro.',
-    'LOCATION:Santiago de Querétaro, Qro.',
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ].join('\r\n');
-  const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'xv-elisa.ics';
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-});
 
 /* ---------- WhatsApp: compartir fotos ---------- */
 document.getElementById('waFotos').href =
